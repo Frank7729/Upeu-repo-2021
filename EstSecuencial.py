@@ -8,6 +8,7 @@ e4=int(input("Calificación Eval 04:"))
 #Proceso
 promediofinal=(e1*0.25+e2*0.25+e3*0.25+e4*0.25)
 #Datos de salida
+<<<<<<< HEAD
 print("La nota final es:", promediofinal)
 
 def Ejercicios04FGCM():
@@ -34,3 +35,6 @@ def Ejercicios04FGCM():
   print("La resultado es:", resultado)
 Ejercicios04FGCM()
 print("")
+=======
+print("La nota final es:", promediofinal)
+>>>>>>> e9420b770499d7a09870e32b900d9abe238847ec

@@ -1,3 +1,4 @@
+package AvanceClasesJava;
 import java.util.Scanner;
 class EstSecuencial{
  static Scanner teclado=new Scanner(System.in);

@@ -1,3 +1,4 @@
+package AvanceClasesJava;
 import java.util.Scanner;
 
 public class RepasoJava {

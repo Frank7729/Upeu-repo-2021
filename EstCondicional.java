@@ -35,8 +35,12 @@ class EstCondicional{
      montoP=cantidadX*75;
     }
     //Datos de salida
-    System.out.println("El monto a pagar es:"+montoP); 
+    System.out.println("El costo es:"+montoP); 
   }
-  public static void main(String[] arg){ //ejercicio01(); 
-    ejercicio02(); 
-  } }
+
+  public static void main(String[] arg){ 
+  //ejercicio01(); 
+  //ejercicio02();
+    
+} 
+}

@@ -128,10 +128,11 @@ public class EjerUnidad_2 {
         System.out.println("Digite la cantidad de terminos: ");
         s=teclado.nextInt();
         for(i=0; i<=s; i++){
-            System.out.println(" "+i);
+            System.out.println(" "+i+1);
         System.out.println("¿Su salario por cada año es?:"+(a+d));
         System.out.println("¿Su salario x6años mas su incremento?:"+(d*c+a*c));
-    }}
+    }
+    }
 
     public static void Ejercicios7(){
         //Definir variables y otros
@@ -272,7 +273,7 @@ public class EjerUnidad_2 {
             System.out.println("\n Desea seguir o "+mensaje);
         }while(opcion!=0);              
     }    
-
+    
 public static void main(String[] args){
     menuMain();
 }

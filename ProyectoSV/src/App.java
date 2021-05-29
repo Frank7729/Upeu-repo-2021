@@ -1,5 +1,6 @@
-//import pe.edu.upeu.SubProgramas;
-import pe.edu.upeu.ProjecTest;
+package ProyectoSV.src;
+//import ProyectoSV.src.pe.edu.upeu.SubProgramas;
+import ProyectoSV.src.pe.edu.upeu.ProjecTest;
 public class App {
 
     public static void main(String[] args) throws Exception {

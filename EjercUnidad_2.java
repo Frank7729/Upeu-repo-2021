@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 
-public class EjerUnidad_2 {
+public class EjercUnidad_2 {
     static Scanner teclado=new Scanner(System.in);
     static int a=1500*12;
     static double b=0.10;

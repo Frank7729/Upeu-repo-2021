@@ -1,9 +1,12 @@
-package ProyectoSV.src.pe.edu.upeu;
+package pe.edu.upeu;
 
-import java.util.Scanner;
+
+import pe.edu.upeu.util.Teclado;
 
 public class ProjecTest {
-    Scanner inputT=new Scanner(System.in);//un objeto
+   
+    //Scanner inputT=new Scanner(System.in);//un objeto
+    Teclado inputT=new Teclado();
     
     public double suma(double num1, double num2) {
         double resultado=num1+num2;    
@@ -37,7 +40,7 @@ public class ProjecTest {
         return resultado;
     }
 
-    public double leer(double valor, String mensaje) {
+   /* public double leer(double valor, String mensaje) {
         System.out.println(mensaje);
         String valorX=inputT.next();  
         double result=0;
@@ -47,16 +50,16 @@ public class ProjecTest {
             result= Double.parseDouble(valorX);            
         }  
         return result;    
-    }
+    }*/
 
     public void operacionesBasicas() {
           
         try { 
-            double num1=leer(0, "Ingrese el primero valor:");
-            double num2=leer(0, "Ingrese el segundo valor:");
-            System.out.println("Indique la Operacion que desee realizar(Suma=+, resta=-,"+ 
-            "division=/, multiplicacion=*, potencia=^):");
-            char operador=inputT.next().charAt(0);              
+            double num1=inputT.leer(0.0, "Ingrese el primero valor:");
+            double num2=inputT.leer(0, "Ingrese el segundo valor:");
+            String msg="Indique la Operacion que desee realizar(Suma=+, resta=-,"+ 
+            "division=/, multiplicacion=*, potencia=^):";
+            char operador=inputT.leer(' ', msg);              
             double resultado=0;
             switch (operador) {
                 case '+': resultado=suma(num1, num2); break;
@@ -72,5 +75,6 @@ public class ProjecTest {
             operacionesBasicas();
         }        
     }
+
 
 }

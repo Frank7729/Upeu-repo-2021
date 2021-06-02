@@ -14,8 +14,20 @@ public class App {
         Teclado tec=new Teclado();
         subprograma objSP=new subprograma();
         int numero=tec.leer(0, "Ingrese un numero");
-        System.out.println("Factorial Iterativo:"+objSP.factorialBig(numero));
-        System.out.println("Factorial Recursivo:"+objSP.factorialRecurvBig(numero));
-    
+        //System.out.println("Factorial Iterativo:"+objSP.factorialBig(numero));
+        //System.out.println("Factorial Recursivo:"+objSP.factorialRecurvBig(numero));
+        
+        /*long ti=System.currentTimeMillis();
+        System.out.println("Fibonacci iteractivo: "+objSP.fibonacci(numero));
+        long tf=System.currentTimeMillis();
+        System.out.println("Tiempo ejecucion:"+(tf-ti));*/
+        /*ti=System.currentTimeMillis();
+        System.out.println("Fibonacci recursivo: "+objSP.fibonacciRecur(numero));
+        tf=System.currentTimeMillis();
+        System.out.println("Tiempo ejecucion:"+(tf-ti));*/
+        long ti=System.currentTimeMillis();
+        System.out.println("Fibonacci iteractivo: "+objSP.fibonacciBig(numero));
+        long tf=System.currentTimeMillis();
+        System.out.println("Tiempo ejecucion:"+(tf-ti));
     }
 }

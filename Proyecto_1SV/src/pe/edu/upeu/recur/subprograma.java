@@ -30,5 +30,34 @@ public class subprograma {
             return resultF; 
         }                        
     }
-    
+
+    public long fibonacci(int numFinal){
+        long numAnt=0, numNue=1,numTem=0,contador=1;
+        while(contador<numFinal){
+          numTem=numNue;
+          numNue=numAnt+numNue;
+          numAnt=numTem;     
+          contador++;
+        }
+        return numNue;
+      }
+      public BigInteger fibonacciBig(int numFinal){
+        BigInteger numAnt=new BigInteger("0"), numNue=new BigInteger("1"),
+        numTem=new BigInteger("0");
+        long contador=1;
+        while(contador<numFinal){
+          numTem=numNue;
+          numNue=numAnt.add(numNue);
+          numAnt=numTem;     
+          contador++;
+        }
+        return numNue;
+    }  
+
+    public long fibonacciRecur(int numero){
+        if(numero>1){
+            return fibonacciRecur(numero-1)+fibonacciRecur(numero-2);
+        }
+        return numero;
+    }
 }

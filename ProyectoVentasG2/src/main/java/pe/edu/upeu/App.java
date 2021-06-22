@@ -2,7 +2,7 @@ package pe.edu.upeu;
 
 import pe.edu.upeu.gui.MainGUI;
 import pe.edu.upeu.modelo.CategoriaTO;
-import pe.edu.upeu.modelo.ProductoTO;
+//import pe.edu.upeu.modelo.ProductoTO;//
 import pe.edu.upeu.util.LeerTeclado;
 
 /**

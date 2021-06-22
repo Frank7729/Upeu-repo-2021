@@ -1,6 +1,5 @@
 import java.util.Scanner;
 
-
 public class EjerciUnidad_2 {
     static Scanner teclado=new Scanner(System.in);
     static int a=1500*12;

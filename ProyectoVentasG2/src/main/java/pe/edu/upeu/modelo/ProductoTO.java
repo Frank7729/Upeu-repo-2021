@@ -1,11 +1,12 @@
 package pe.edu.upeu.modelo;
-//import lombok.Data;//
+
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter @Setter
+@Getter
+@Setter
+
 public class ProductoTO {
     public String idProducto, nombre, unidadMed, idCateg;
     public double precioUnit, porceUtil, stock;
-
 }

@@ -149,12 +149,13 @@ public class TransfMat {
                 numInit++;
             }
         }
+        System.out.println("--------- EJERCICIO 12 -----------");
         TransfMat tm=new TransfMat();  
         tm.imprimirContenidoMatrizCadena(matriz);        
     }
 
     public void transformada21(int dimen, int numInit) {
-        String[][] matriz=new String[dimen][dimen];// i = Fila; j=Columna
+        String[][] matriz=new String[dimen][dimen];
         for (int j = 0; j < matriz[0].length; j++) {
             if (j%2==0) {
                 for (int i = 0; i < matriz.length; i++) {
@@ -168,6 +169,7 @@ public class TransfMat {
                 }                
             } 
         }
+        System.out.println("---------- EJERCICIO 21 -----------");
         TransfMat tm=new TransfMat();  
         tm.imprimirContenidoMatrizCadena(matriz);        
     }
@@ -182,7 +184,9 @@ public class TransfMat {
         tm.Ejercicio03(5,0);
         tm.Ejercicio04(5,0);*/
         tm.transformada12(5, 0);
+        System.out.println("");
         tm.transformada21(5, 0);
+        System.out.println("");
     }
 
 }

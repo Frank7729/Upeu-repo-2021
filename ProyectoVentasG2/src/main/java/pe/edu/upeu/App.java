@@ -10,8 +10,11 @@ import pe.edu.upeu.dao.VentaDao;
 import pe.edu.upeu.modelo.CategoriaTO;
 //import pe.edu.upeu.modelo.ProductoTO;
 import pe.edu.upeu.util.LeerTeclado;
-//import pe.edu.upeu.util.LeerTeclado;
 import pe.edu.upeu.util.UtilsX;
+import org.fusesource.jansi.Ansi;
+import org.fusesource.jansi.AnsiConsole;
+//import static org.fusesource.jansi.Ansi.*;
+//import static org.fusesource.jansi.Ansi.Color.*;
 
 /**
  * Hello world!
@@ -26,15 +29,16 @@ public class App{
     }
 
     public static void menuMain(){
-        String mensaje="Seleccion el algoritmo que desea ejecutar:"+
-        "\n1=Registrar Categoria"+
-        " \n12=Reportar Categoria"+
-        "\n2=Registrar Productos"+
-        " \n21=Reportar Productos"+
-        " \n22=Modificar Productos"+
-        " \n3=Realizar Venta"+
-        " \n4=Registrar Usuario"+
-        "\n0=Salir del programa";
+        String mensaje="\nSeleccione el algoritmo que desea ejecutar:"+
+        "\n1 = Registrar Categoria"+
+        " \n 12 = Reportar Categoria"+
+        "\n2 = Registrar Productos"+
+        " \n 21 = Reportar Productos"+
+        " \n 22 = Modificar Productos"+
+        "\n3 = Realizar Venta"+
+        " \n 31 = Reporte Venta/Fecha"+
+        "\n4 = Registrar Usuario"+
+        "\n0 = Salir del programa";
         LeerTeclado lt=new LeerTeclado();
         UtilsX ut=new UtilsX();
         CategoriaDao daoC;
@@ -45,21 +49,26 @@ public class App{
         opcion=lt.leer(0, mensaje);
         do{           
             switch(opcion){
-                case 1:daoC=new CategoriaDao();daoC.crearCategoria();ut.clearConsole(); break;
-                case 12: ut.clearConsole();daoC=new CategoriaDao();daoC.reporteCategoria(); break;
-                case 2: ut.clearConsole();daoPro=new ProductoDao();daoPro.crearProducto(); break;
-                case 21:daoPro=new ProductoDao();daoPro.reporteProducto(); break;
-                case 3: ;break;
+                case 1:daoC=new CategoriaDao();daoC.crearCategoria();break;
+                case 12:ut.clearConsole();daoC=new CategoriaDao();daoC.reporteCategoria();break;
+                case 2:daoPro=new ProductoDao();daoPro.crearProducto(); break;
+                case 21:ut.clearConsole();daoPro=new ProductoDao();daoPro.reporteProducto(); break;
+                case 3:daoVent=new VentaDao();daoVent.registroVentaGeneral(); break;
+                case 31:ut.clearConsole();daoVent=new VentaDao();daoVent.reporteVentasRangoFecha();break;
                 case 4:daoUsu=new UsuarioDao();daoUsu.crearNuevoUsuario(); break;
-                case 5:daoVent=new VentaDao();daoVent.registroVenta(); ;break;
+                //case 5:daoVent=new VentaDao();daoVent.registroVenta(); ;break;
                 default:System.out.println("La opcion que eligio no existe: "); 
                 break;
             }
-            if(opcion!=0)
-            System.out.println("\n Desea seguir probando: ");
-            opcion=lt.leer(0, mensaje);
-            
-        }while(opcion!=0);        
+            if(opcion!=0){
+                if(lt.leer("", "\nDesea seguir probando SI=S/NO=N:").toUpperCase().charAt(0)=='S'){
+                    opcion=lt.leer(0, mensaje);
+                }else{
+                    opcion=0;
+                }  
+            }
+        }while(opcion!=0);
+        ut.clearConsole();        
     }
 
     public static void ValidarAcceso(){
@@ -75,10 +84,18 @@ public class App{
             System.out.println("Ingrese nuevamente: ");
             ValidarAcceso();
         }
+        
     }
 
     public static void main( String[] args ){   
-        ValidarAcceso();
+        AnsiConsole.systemInstall();
+        Ansi colorX=new Ansi();
+        System.out.println(colorX.bgBrightGreen().fgBlue().a("***************Ingreso al Sistema***********").reset());
+        //AnsiConsole.systemInstall();
+        //System.out.println(colorX.render("@|red Hello|@ gggg @|green World|@") );
+        ValidarAcceso();       
+        //menuMain(); 
+        //new MainGUI();
 
         //menuMain();
         //new MainGUI();

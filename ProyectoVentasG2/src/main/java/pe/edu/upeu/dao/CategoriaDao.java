@@ -41,7 +41,6 @@ public class CategoriaDao extends AppCrud {
         ut.pintarTextHeadBody('H', 3,  "    ID,   Nombre");
         System.out.println("");
         ut.pintarLine('H',15);
-
         for(int i=0; i<data.length; i++){
             for(int j=0; j<data[0].length; j++){
                 if(j==0){

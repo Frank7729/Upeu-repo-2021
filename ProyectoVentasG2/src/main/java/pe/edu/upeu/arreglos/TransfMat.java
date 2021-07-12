@@ -38,19 +38,9 @@ public class TransfMat {
                 }
             }
         }  
-        imprimirContenidoMatrizEnteros(matriz);              
-    }    
+        imprimirContenidoMatrizCadena(matriz);              
+    }         
     
-    public void imprimirContenidoMatrizEnteros(Object[][] matriz) {
-        for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0; j < matriz[0].length; j++) {
-                System.out.print(matriz[i][j]+"\t");
-            }
-            System.out.println("");
-        }        
-    } 
-
-
     public void imprimirContenidoMatrizEnteros(int[][] matriz) {
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[0].length; j++) {
@@ -58,7 +48,20 @@ public class TransfMat {
             }
             System.out.println("");
         }        
-    }
+    }   
+    
+    public void imprimirContenidoMatrizCadena(String[][] matriz) {
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[0].length; j++) {
+                if(matriz[i][j]!=null && !matriz[i][j].equals("")){
+                    System.out.print(matriz[i][j]+"\t");
+                }else{
+                    System.out.print("\t");
+                }                
+            }
+            System.out.println("");
+        }        
+    }     
      
     public void Ejercicio02(int dimension, int valorInicial) {
         int item=0;
@@ -101,7 +104,7 @@ public class TransfMat {
                 }
             }
         }
-        imprimirContenidoMatrizEnteros(matriz);
+        imprimirContenidoMatrizCadena(matriz);
         System.out.println("");
     }
      
@@ -123,18 +126,63 @@ public class TransfMat {
                 }
             }
         }
-        imprimirContenidoMatrizEnteros(matriz);
+        imprimirContenidoMatrizCadena(matriz);
         System.out.println("");
     }
+
+    public String[][] transformada05(int dimen, int numInit){
+        String[][] matriz=new String[dimen][dimen];
+        for(int i=0; i<matriz.length; i++){
+            for(int j=0; j<=i; j++){
+                matriz[i][(dimen-1)-j]=""+numInit;
+                numInit++;
+            }
+        }
+        return matriz;
+    }
+
+    public void transformada12(int dimen, int numInit) {
+        String[][] matriz=new String[dimen][dimen];
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j <= (dimen-1)-i; j++) {
+                matriz[i][(dimen-1)-j]=""+numInit;
+                numInit++;
+            }
+        }
+        TransfMat tm=new TransfMat();  
+        tm.imprimirContenidoMatrizCadena(matriz);        
+    }
+
+    public void transformada21(int dimen, int numInit) {
+        String[][] matriz=new String[dimen][dimen];// i = Fila; j=Columna
+        for (int j = 0; j < matriz[0].length; j++) {
+            if (j%2==0) {
+                for (int i = 0; i < matriz.length; i++) {
+                    matriz[i][j]=""+numInit;
+                    numInit++;
+                }
+            } else {
+                for (int i = matriz.length-1; i >=0 ; i--) {
+                    matriz[i][j]=""+numInit;
+                    numInit++;
+                }                
+            } 
+        }
+        TransfMat tm=new TransfMat();  
+        tm.imprimirContenidoMatrizCadena(matriz);        
+    }
+    
     
     public static void main(String[] args) {    
         TransfMat tm=new TransfMat();  
-        tm.transformada01(5,0);  
+        /*tm.transformada01(5,0);  
         //System.out.println("");
         //tm.transformada01x(5,0);    
         tm.Ejercicio02(5,0);
         tm.Ejercicio03(5,0);
-        tm.Ejercicio04(5,0);
+        tm.Ejercicio04(5,0);*/
+        tm.transformada12(5, 0);
+        tm.transformada21(5, 0);
     }
 
 }

@@ -34,7 +34,7 @@ public class UtilsX {
         catch (final Exception e){
            System.out.println("Error: "+e.getMessage());
         }
-       System.out.println("------------------------------------------------"); 
+       System.out.println(""); 
     }  
 
     public void pintarLine(char horient, int sizen) {

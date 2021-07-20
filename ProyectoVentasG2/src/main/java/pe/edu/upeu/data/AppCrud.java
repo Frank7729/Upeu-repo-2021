@@ -3,10 +3,12 @@ package pe.edu.upeu.data;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
+import pe.edu.upeu.util.UtilsX;
 
 import pe.edu.upeu.util.LeerArchivo;
 
 public class AppCrud {
+    
  
     public String generarId(LeerArchivo la, int numColum, String prefijo, int iniPrefNex){
         int idX=1;
@@ -74,12 +76,66 @@ public class AppCrud {
                 String fieldName = field.getName();
                 Object fieldValue = field.get(modelo);                
                 datosNew[datosNew.length-1][primero]=fieldValue;
-                System.out.println(fieldName + ":"+ fieldValue);
+                System.out.println("| "+fieldName+": "+fieldValue+" |");
             } catch (Exception e) {
                 System.out.println("Errro:" + e.getMessage());
             }
             primero++;
         }
+        System.out.println("\n    ¡¡¡¡¡ Se registró correctamente !!!!!");
+        String contenido="";
+        for (int j = 0; j < datosNew.length; j++) {                                               
+            for(int k=0; k<datosNew[0].length;k++){
+                if(k==0){
+                    contenido+=datosNew[j][k];
+                }else{
+                    contenido+="\t"+datosNew[j][k];
+                }
+            }
+            lista.add(contenido);
+            contenido="";
+        }    
+        try {
+                aq.escribir(lista);
+        } catch (Exception e) { e.getMessage();
+        } 
+        return datosNew;    
+    }
+
+    public Object[][] agregarContenido1(LeerArchivo aq, Object modelo){
+        Object[][] datosAnt=listarContenido(aq);
+        int tamanho=(datosAnt==null?0:datosAnt.length);
+        int numColum=numColumna(aq, modelo);
+        Object[][] datosNew=new Object[tamanho+1][numColum];
+        for (int i = 0; i < tamanho; i++) {
+            for(int j = 0;j<datosAnt[0].length;j++){
+                datosNew[i][j]=datosAnt[i][j];
+            }
+        }
+        List<String> lista = new ArrayList();		
+        Field[] fields = (modelo).getClass().getDeclaredFields();
+        int primero=0;
+        UtilsX ut=new UtilsX();
+        ut.clearConsole();
+        System.out.println("----------------------------------------------------------------------"); 
+        System.out.println("|----------------------- NUEVO PRODUCTO CREADO ----------------------|"); 
+        System.out.println("----------------------------------------------------------------------"); 
+        ut.pintarTextHeadBody('H', 2, " Id.Prdt,Nombre,Und.Medida,Id.Catg,P.Unitario,% Utilidad,Stock"); 
+        System.out.println("");
+        System.out.println("----------------------------------------------------------------------");     
+        for(Field field : fields) {
+            try {
+                String fieldName = field.getName();
+                Object fieldValue = field.get(modelo);                
+                datosNew[datosNew.length-1][primero]=fieldValue;
+                System.out.print("| "+""+fieldValue+"  ");
+            } catch (Exception e) {
+                System.out.println("Errro:" + e.getMessage());
+            }
+            primero++;
+        }
+        System.out.println("\n----------------------------------------------------------------------"); 
+        System.out.println("                 ¡¡¡¡¡ Se registró correctamente !!!!!");
         String contenido="";
         for (int j = 0; j < datosNew.length; j++) {                                               
             for(int k=0; k<datosNew[0].length;k++){

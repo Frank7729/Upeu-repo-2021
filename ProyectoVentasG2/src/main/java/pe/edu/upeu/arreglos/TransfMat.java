@@ -177,12 +177,12 @@ public class TransfMat {
     
     public static void main(String[] args) {    
         TransfMat tm=new TransfMat();  
-        /*tm.transformada01(5,0);  
+        tm.transformada01(5,0);  
         //System.out.println("");
         //tm.transformada01x(5,0);    
         tm.Ejercicio02(5,0);
         tm.Ejercicio03(5,0);
-        tm.Ejercicio04(5,0);*/
+        tm.Ejercicio04(5,0);
         tm.transformada12(5, 0);
         System.out.println("");
         tm.transformada21(5, 0);

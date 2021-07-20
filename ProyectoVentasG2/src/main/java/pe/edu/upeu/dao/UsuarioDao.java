@@ -16,15 +16,17 @@ public class UsuarioDao extends AppCrud{
     UtilsX ut=new UtilsX();
     
     public void crearNuevoUsuario(){
+        ut.clearConsole();
         usTO=new UsuarioTO();
         ler=new LeerArchivo("Usuario.txt");
-        String user=lte.leer("","Ingrese un usuario: ").toLowerCase();  
+        System.out.print("****** INGRESE DATOS DEL USUARIO ******");
+        String user=lte.leer("","\nIngrese un usuario: ").toLowerCase();  
         if(validarExistUser(user)){
             usTO.setUsuario(user);
             usTO.setIdUsuario(generarId(ler, 0, "U", 1));
-            usTO.setPerfil(lte.leer("", "Ingrese el Perfil del Usuario (ADMIN, VENDEDOR):").toUpperCase());        
+            usTO.setPerfil(lte.leer("", "Ingrese el Perfil del Usuario (ADMIN, VENDEDOR): ").toUpperCase());        
             Console  constx= System.console();
-            System.out.println("Ingrese Clave:");
+            System.out.print("Ingrese Clave: ");
             char[] clave=constx.readPassword();
             usTO.setClave(String.valueOf(clave));
             agregarContenido(ler, usTO);            

@@ -53,10 +53,9 @@ public class UtilsX {
         }
     }
 
-    public void pintarTextHeadBody(char type, int sizen, String content) {
-        
+    public void pintarTextHeadBody(char type, int sizen, String content) {    
         int sizeX=sizen>=2?4*sizen:4;
-        System.out.print("  |");
+        System.out.print("|");
         String[] data=content.split(",");        
         for (int j = 1; j <= data.length; j++) {
             data[j-1]=data[j-1].length()>sizeX?data[j-1].substring(0,sizeX):data[j-1];            
@@ -88,11 +87,5 @@ public class UtilsX {
         
     }
 
-	/*
-	    pintarLine('H', 28);
-        pintarTextHeadBody('H', 3, "Nombre,Apellidos,dni,celular");
-        System.out.println("");
-        pintarLine('H', 28);
-        pintarTextHeadBody('B', 3, "David,M,43631917,951782520");
-	*/
+    
 }

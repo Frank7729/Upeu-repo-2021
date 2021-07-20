@@ -5,16 +5,16 @@ public class CategoriaTO {
     public String nombre;
     
     public String getIdCateg() {
-        return idCateg;
+        return idCateg ;
     }
     public void setIdCateg(String idCateg) {
-        this.idCateg = idCateg;
+        this.idCateg = idCateg ;
     }
     public String getNombre() {
-        return nombre;
+        return nombre ;
     }
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        this.nombre = nombre ;
     }
 
     
